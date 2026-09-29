@@ -1,0 +1,211 @@
+<section class="blog-hero py-5">
+  <div class="container text-center py-4">
+    <span class="blog-badge d-inline-block mb-4"> مدونتنا </span>
+
+    <h1 class="blog-title fw-bold mb-3">
+      استكشف
+      <span>مقالاتنا</span>
+    </h1>
+
+    <p class="blog-subtitle mb-0">
+      اكتشف الدروس والرؤى وأفضل الممارسات في عالم التصوير الفوتوغرافي
+    </p>
+  </div>
+</section>
+
+<section class="filter-section py-4">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-12 col-lg-4">
+        <div class="search-box d-flex align-items-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            class="w-100"
+            placeholder="ابحث في المقالات..."
+            (input)="search($event)"
+          />
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-8">
+        <div class="d-flex flex-wrap gap-2">
+          <button
+            class="category-btn"
+            (click)="filterCategory('الكل')"
+            [class.active]="selectedCategory === 'الكل'"
+          >
+            جميع المقالات
+          </button>
+
+          <button
+            class="category-btn"
+            (click)="filterCategory('إضاءة')"
+            [class.active]="selectedCategory === 'إضاءة'"
+          >
+            إضاءة
+          </button>
+
+          <button
+            class="category-btn"
+            (click)="filterCategory('بورتريه')"
+            [class.active]="selectedCategory === 'بورتريه'"
+          >
+            بورتريه
+          </button>
+
+          <button
+            class="category-btn"
+            (click)="filterCategory('مناظر طبيعية')"
+            [class.active]="selectedCategory === 'مناظر طبيعية'"
+          >
+            مناظر طبيعية
+          </button>
+
+          <button
+            class="category-btn"
+            (click)="filterCategory('تقنيات')"
+            [class.active]="selectedCategory === 'تقنيات'"
+          >
+            تقنيات
+          </button>
+
+          <button
+            class="category-btn"
+            (click)="filterCategory('معدات')"
+            [class.active]="selectedCategory === 'معدات'"
+          >
+            معدات
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="posts-section py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <p class="posts-count mb-0">
+        عرض
+        <strong>{{ filteredPosts.length }}</strong>
+        مقالات
+      </p>
+
+      <div class="view-buttons d-flex">
+        <button (click)="changeView('grid')" [class.active]="viewMode === 'grid'">
+          <i class="fa-solid fa-table-cells-large"></i>
+        </button>
+
+        <button (click)="changeView('list')" [class.active]="viewMode === 'list'">
+          <i class="fa-solid fa-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="row g-4" *ngIf="viewMode === 'grid'">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let post of filteredPosts">
+        <a [routerLink]="['/blog', post.slug]" class="blog-card d-block h-100 text-decoration-none">
+          <div class="blog-image-wrapper">
+            <img [src]="post.image" [alt]="post.title" class="blog-image" />
+
+            <span class="blog-category">
+              {{ post.category }}
+            </span>
+          </div>
+
+          <div class="p-4 text-end">
+            <p class="post-info mb-2">{{ post.readTime }} • {{ post.date }}</p>
+
+            <h3 class="fw-bold mb-3">
+              {{ post.title }}
+            </h3>
+
+            <p class="excerpt mb-3">
+              {{ post.excerpt }}
+            </p>
+
+            <hr />
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <img [src]="post.author.avatar" [alt]="post.author.name" class="author-image" />
+
+                <div>
+                  <strong class="text-white">
+                    {{ post.author.name }}
+                  </strong>
+
+                  <small>
+                    {{ post.author.role }}
+                  </small>
+                </div>
+              </div>
+
+              <span class="details-button">
+                <i class="fa-solid fa-chevron-left"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="viewMode === 'list'">
+      <a
+        *ngFor="let post of filteredPosts"
+        [routerLink]="['/blog', post.slug]"
+        class="list-card d-block text-decoration-none mb-4"
+      >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="post.image" [alt]="post.title" class="list-image" />
+          </div>
+
+          <div class="col-md-8">
+            <div class="p-4 text-end">
+              <span class="blog-category">
+                {{ post.category }}
+              </span>
+
+              <p class="post-info mt-3 mb-2">{{ post.readTime }} • {{ post.date }}</p>
+
+              <h3 class="fw-bold text-white">
+                {{ post.title }}
+              </h3>
+
+              <p class="excerpt">
+                {{ post.excerpt }}
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="d-flex align-items-center gap-2">
+                  <img [src]="post.author.avatar" [alt]="post.author.name" class="author-image" />
+
+                  <div>
+                    <strong class="text-white">
+                      {{ post.author.name }}
+                    </strong>
+
+                    <small>
+                      {{ post.author.role }}
+                    </small>
+                  </div>
+                </div>
+
+                <span class="read-more"> اقرأ المقال ← </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div *ngIf="filteredPosts.length === 0" class="text-center py-5">
+      <h3 class="text-white">لا توجد مقالات</h3>
+
+      <p class="text-secondary">جرب البحث بكلمة أخرى</p>
+    </div>
+  </div>
+</section>

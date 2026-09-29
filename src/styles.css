@@ -1,0 +1,28 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  direction: rtl;
+  background-color: #090909;
+  color: #ffffff;
+   font-family: 'Cairo', sans-serif;
+}
+
+:root {
+  --main-orange: #ff6b00;
+  --dark-bg: #090909;
+  --card-bg: #151515;
+  --border-color: #2a2a2a;
+  --muted-text: #8b8b8b;
+}

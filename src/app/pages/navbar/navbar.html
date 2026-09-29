@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <div class="logo-icon">
+        <i class="fa-solid fa-camera"></i>
+      </div>
+
+      <div>
+        <div class="fw-bold">عدسة</div>
+
+        <small class="brand-subtitle"> عالم التصوير الفوتوغرافي </small>
+      </div>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto nav-pill p-1">
+        <li class="nav-item">
+          <a
+            class="nav-link text-center"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            الرئيسية
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-center" routerLink="/blog" routerLinkActive="active"> المدونة </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-center" routerLink="/about" routerLinkActive="active"> من نحن </a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <a routerLink="/blog" class="btn start-reading-btn"> ابدأ القراءة </a>
+      </div>
+    </div>
+  </div>
+</nav>

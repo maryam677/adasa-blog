@@ -1,0 +1,298 @@
+<div *ngIf="post" class="details-page">
+  <section
+    class="details-hero"
+    [style.background-image]="
+      'linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.88)), url(' + post.image + ')'
+    "
+  >
+    <div class="container h-100 position-relative">
+      <div class="breadcrumb-box d-flex align-items-center gap-2">
+        <a routerLink="/">
+          <i class="fa-solid fa-house"></i>
+        </a>
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+        <a routerLink="/blog"> المدونة </a>
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+        <span>
+          {{ post.category }}
+        </span>
+      </div>
+
+      <div class="hero-content">
+        <div class="d-flex align-items-center flex-wrap gap-3 mb-4 post-meta">
+          <span class="category-badge">
+            {{ post.category }}
+          </span>
+
+          <span>
+            <i class="fa-regular fa-calendar ms-1"></i>
+            {{ post.date }}
+          </span>
+
+          <span>
+            <i class="fa-regular fa-clock ms-1"></i>
+            {{ post.readTime }}
+          </span>
+        </div>
+
+        <h1 class="fw-bold mb-4">
+          {{ post.title }}
+        </h1>
+
+        <div class="hero-author d-flex align-items-center gap-2">
+          <img [src]="post.author.avatar" [alt]="post.author.name" />
+
+          <div>
+            <strong class="d-block">
+              {{ post.author.name }}
+            </strong>
+
+            <span>
+              {{ post.author.role }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="article-section py-5">
+    <div class="container">
+      <div class="row g-5 article-row">
+        <div class="col-lg-3">
+          <aside class="article-sidebar">
+            <div class="sidebar-box p-4 mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="fw-bold mb-0 fs-5">محتويات المقال</h3>
+
+                <span class="icon-box">
+                  <i class="fa-solid fa-list"></i>
+                </span>
+              </div>
+
+              <div class="d-flex flex-column">
+                <a
+                  *ngFor="let section of sections; let i = index"
+                  [href]="'#section-' + (i + 1)"
+                  class="content-link d-flex justify-content-between align-items-center gap-2"
+                >
+                  <span>
+                    {{ section.title }}
+                  </span>
+
+                  <span class="content-number">
+                    {{ i + 1 }}
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div class="sidebar-box p-3 mb-4">
+              <div class="row g-2 text-center">
+                <div class="col-6">
+                  <div class="info-card p-3 h-100">
+                    <i class="fa-regular fa-calendar d-block mb-2"></i>
+
+                    <strong class="d-block">
+                      {{ post.date }}
+                    </strong>
+
+                    <small> تاريخ النشر </small>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="info-card p-3 h-100">
+                    <i class="fa-regular fa-clock d-block mb-2"></i>
+
+                    <strong class="d-block">
+                      {{ post.readTime }}
+                    </strong>
+
+                    <small> وقت القراءة </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="newsletter-box text-center p-4">
+              <div class="mail-icon mx-auto mb-3">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <h3 class="fw-bold fs-5">لا تفوت جديدنا</h3>
+
+              <p class="mb-3">اشترك للحصول على أحدث المقالات</p>
+
+              <a routerLink="/blog" class="d-block"> تصفح المزيد </a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="col-lg-9">
+          <main class="article-main">
+            <div class="excerpt-box p-4 mb-4">
+              {{ post.excerpt }}
+            </div>
+
+            <p class="article-intro mb-5">
+              {{ intro }}
+            </p>
+
+            <div
+              class="article-part mb-5"
+              *ngFor="let section of sections; let i = index"
+              [id]="'section-' + (i + 1)"
+            >
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="icon-box">
+                  <i class="fa-solid fa-camera"></i>
+                </span>
+
+                <h2 class="fw-bold mb-0">
+                  {{ section.title }}
+                </h2>
+              </div>
+
+              <p class="section-content mb-0">
+                {{ section.content }}
+              </p>
+            </div>
+
+            <div class="details-card p-4 mb-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="icon-box">
+                  <i class="fa-solid fa-tag"></i>
+                </span>
+
+                <h3 class="fw-bold fs-5 mb-0">الوسوم</h3>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tag-item" *ngFor="let tag of post.tags"> #{{ tag }} </span>
+              </div>
+            </div>
+
+            <div
+              class="details-card p-4 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3"
+            >
+              <div class="d-flex align-items-center gap-3">
+                <span class="icon-box">
+                  <i class="fa-solid fa-share-nodes"></i>
+                </span>
+
+                <h3 class="fw-bold fs-5 mb-0">شارك المقال</h3>
+              </div>
+
+              <div class="d-flex gap-2">
+                <button class="share-btn">
+                  <i class="fa-solid fa-link"></i>
+                </button>
+
+                <button class="share-btn">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </button>
+
+                <button class="share-btn">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </button>
+
+                <button class="share-btn">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="author-card p-4 d-flex align-items-center gap-4">
+              <img [src]="post.author.avatar" [alt]="post.author.name" />
+
+              <div>
+                <span class="author-label"> كاتب المقال </span>
+
+                <h3 class="fw-bold mb-1">
+                  {{ post.author.name }}
+                </h3>
+
+                <p class="author-role mb-2">
+                  {{ post.author.role }}
+                </p>
+
+                <p class="author-description mb-0">
+                  مصور محترف شغوف بمشاركة المعرفة والخبرات في عالم التصوير الفوتوغرافي.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-section py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <span class="related-icon">
+            <i class="fa-regular fa-image"></i>
+          </span>
+
+          <div>
+            <h2 class="fw-bold mb-1">مقالات قد تعجبك</h2>
+
+            <p class="text-secondary mb-0">استكشف المزيد من المحتوى المميز</p>
+          </div>
+        </div>
+
+        <a routerLink="/blog" class="show-all-related">
+          عرض الكل
+          <i class="fa-solid fa-arrow-left me-2"></i>
+        </a>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" *ngFor="let item of relatedPosts">
+          <a
+            [routerLink]="['/blog', item.slug]"
+            class="related-card d-block h-100 text-decoration-none"
+          >
+            <div class="related-image">
+              <img [src]="item.image" [alt]="item.title" />
+
+              <span class="related-category">
+                {{ item.category }}
+              </span>
+            </div>
+
+            <div class="p-4">
+              <h3 class="fw-bold mb-4">
+                {{ item.title }}
+              </h3>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                  <img
+                    [src]="item.author.avatar"
+                    [alt]="item.author.name"
+                    class="related-author-image"
+                  />
+
+                  <span>
+                    {{ item.author.name }}
+                  </span>
+                </div>
+
+                <span class="text-secondary">
+                  {{ item.readTime }}
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

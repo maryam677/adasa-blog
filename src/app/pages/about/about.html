@@ -1,0 +1,197 @@
+<section class="about-hero d-flex align-items-center text-center">
+  <div class="container">
+    <div class="mx-auto hero-content">
+      <span class="section-badge d-inline-flex align-items-center gap-2 mb-4">
+        <span class="small-dot"></span>
+        <span class="dot"></span>
+
+        من نحن
+      </span>
+
+      <h1 class="hero-title fw-bold mb-3">
+        <span class="white-title"> مهمتنا هي </span>
+
+        <span class="orange-title"> الإعلام والإلهام </span>
+      </h1>
+
+      <p class="hero-description mx-auto mb-0">
+        مدونة متخصصة في فن التصوير الفوتوغرافي، نشارك معكم أسرار المحترفين ونصائح عملية لتطوير
+        مهاراتكم. نحن شغوفون بمشاركة المعرفة ومساعدة المصورين على تنمية مهاراتهم من خلال محتوى عالي
+        الجودة.
+      </p>
+
+      <div class="row g-3 mt-4 stats-row mx-auto">
+        <div class="col-6 col-lg-3">
+          <div class="stat-card d-flex flex-column align-items-center justify-content-center h-100">
+            <i class="fa-solid fa-users mb-2"></i>
+
+            <h3 class="fw-bold mb-1">2+ مليون</h3>
+
+            <p class="mb-0">قارئ شهرياً</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stat-card d-flex flex-column align-items-center justify-content-center h-100">
+            <i class="fa-regular fa-newspaper mb-2"></i>
+
+            <h3 class="fw-bold mb-1">500+</h3>
+
+            <p class="mb-0">مقالة منشورة</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stat-card d-flex flex-column align-items-center justify-content-center h-100">
+            <i class="fa-solid fa-pen-nib mb-2"></i>
+
+            <h3 class="fw-bold mb-1">50+</h3>
+
+            <p class="mb-0">كاتب خبير</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stat-card d-flex flex-column align-items-center justify-content-center h-100">
+            <i class="fa-solid fa-book-open mb-2"></i>
+
+            <h3 class="fw-bold mb-1">15+</h3>
+
+            <p class="mb-0">تصنيف</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold mb-3">
+        <span class="orange-text">|</span>
+        قيمنا
+        <span class="orange-text">|</span>
+      </h2>
+
+      <p class="text-secondary mb-0">المبادئ التي توجه كل ما نقوم بإنشائه</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center h-100 p-4">
+          <i class="fa-solid fa-bullseye mb-3"></i>
+
+          <h3 class="fw-bold">الجودة أولاً</h3>
+
+          <p class="mb-0">محتوى مدروس ومكتوب بخبرة</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center h-100 p-4">
+          <i class="fa-solid fa-bolt mb-3"></i>
+
+          <h3 class="fw-bold">تركيز عملي</h3>
+
+          <p class="mb-0">أمثلة واقعية يمكنك تطبيقها اليوم</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center h-100 p-4">
+          <i class="fa-solid fa-handshake mb-3"></i>
+
+          <h3 class="fw-bold">المجتمع</h3>
+
+          <p class="mb-0">تعلم مع آلاف المصورين</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center h-100 p-4">
+          <i class="fa-solid fa-arrows-rotate mb-3"></i>
+
+          <h3 class="fw-bold">دائماً محدث</h3>
+
+          <p class="mb-0">أحدث الاتجاهات وأفضل الممارسات</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge d-inline-flex align-items-center gap-2 mb-4">
+        <span class="dot"></span>
+
+        فريقنا
+      </span>
+
+      <h2 class="fw-bold mb-3">تعرف على كتابنا</h2>
+
+      <p class="text-secondary mx-auto team-description">
+        فريقنا من المصورين والكتاب ذوي الخبرة شغوفون بمشاركة معرفتهم مع المجتمع.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let member of team">
+        <div class="team-card text-center h-100 p-4">
+          <div class="team-image position-relative mx-auto mb-3">
+            <img [src]="member.avatar" [alt]="member.name" />
+
+            <span class="verified"> ✓ </span>
+          </div>
+
+          <h3 class="fw-bold mb-1">
+            {{ member.name }}
+          </h3>
+
+          <p class="role mb-3">
+            {{ member.role }}
+          </p>
+
+          <div class="d-flex justify-content-center gap-2">
+            <button class="social-btn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </button>
+
+            <button class="social-btn">
+              <i class="fa-brands fa-github"></i>
+            </button>
+
+            <button class="social-btn">
+              <i class="fa-brands fa-x-twitter"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section text-center py-5">
+  <div class="container">
+    <div class="mx-auto contact-content">
+      <h2 class="fw-bold mb-3">لديك أسئلة؟ دعنا نتحدث!</h2>
+
+      <p class="mx-auto mb-4">
+        نحب أن نسمع منك، سواء كان لديك سؤال حول محتوانا، أو تريد المساهمة، أو تريد فقط إلقاء التحية.
+        لا تتردد في التواصل.
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a routerLink="/blog" class="btn articles-btn"> تصفح المقالات </a>
+
+        <a href="mailto:test@test.com" class="btn contact-btn">
+          <i class="fa-regular fa-envelope ms-2"></i>
+
+          تواصل معنا
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

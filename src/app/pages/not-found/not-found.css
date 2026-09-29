@@ -1,0 +1,144 @@
+.not-found-page {
+  min-height: calc(100vh - 90px);
+
+  padding: 60px 20px;
+
+  background-color: #090909;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(255, 102, 0, 0.08), transparent 45%);
+
+  background-size:
+    65px 65px,
+    65px 65px,
+    100% 100%;
+
+  color: white;
+
+  direction: rtl;
+}
+
+.error-code {
+  font-size: 150px;
+  line-height: 1;
+
+  color: #ff8500;
+}
+
+.sad-icon {
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  border: 1px solid #7a3c0d;
+  border-radius: 50%;
+
+  background: rgba(255, 107, 0, 0.13);
+}
+
+.sad-icon i {
+  font-size: 48px;
+  color: #ff6b00;
+}
+
+.sad-icon::before,
+.sad-icon::after {
+  content: '';
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: #ff9700;
+}
+
+.sad-icon::before {
+  width: 22px;
+  height: 22px;
+
+  top: -12px;
+  right: -5px;
+}
+
+.sad-icon::after {
+  width: 18px;
+  height: 18px;
+
+  bottom: -8px;
+  left: -10px;
+}
+
+.error-text {
+  max-width: 650px;
+
+  color: #999;
+
+  line-height: 1.9;
+
+  font-size: 17px;
+}
+
+.home-btn,
+.blog-btn {
+  min-width: 210px;
+
+  padding: 15px 25px;
+
+  border-radius: 30px;
+
+  font-weight: bold;
+}
+
+.home-btn {
+  background: #ff6b00;
+  color: white;
+  border: 1px solid #ff6b00;
+}
+
+.home-btn:hover {
+  background: #e95f00;
+  color: white;
+}
+
+.blog-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #444;
+}
+
+.blog-btn:hover {
+  color: #ff6b00;
+  border-color: #ff6b00;
+}
+
+.suggestions {
+  max-width: 520px;
+
+  border-top: 1px solid #292929;
+}
+
+.suggestions p {
+  color: #777;
+}
+
+.suggestions a {
+  color: #ff6b00;
+  text-decoration: none;
+}
+
+.suggestions a:hover {
+  color: #ff8c00;
+}
+
+.suggestions span {
+  color: #555;
+}
+
+
